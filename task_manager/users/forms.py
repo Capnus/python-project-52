@@ -9,7 +9,7 @@ class UserForm(forms.ModelForm):
     first_name = forms.CharField(
         max_length=150,
         required=True,
-        label= _("First name"),
+        label=_("First name"),
         label_suffix='',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
@@ -20,7 +20,7 @@ class UserForm(forms.ModelForm):
     last_name = forms.CharField(
         max_length=150,
         required=True,
-        label= _("Last name"),
+        label=_("Last name"),
         label_suffix='',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
@@ -32,7 +32,7 @@ class UserForm(forms.ModelForm):
     username = forms.CharField(
         max_length=150,
         required=True,
-        label= _("Username"),
+        label=_("Username"),
         label_suffix='',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
@@ -43,7 +43,7 @@ class UserForm(forms.ModelForm):
     )
 
     password1 = forms.CharField(
-        label= _("Password"),
+        label=_("Password"),
         label_suffix='',
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',

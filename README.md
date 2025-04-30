@@ -3,7 +3,7 @@
 
 [![Maintainability](https://qlty.sh/badges/bffc2caf-6a96-4914-864b-fdd1e74740da/maintainability.svg)](https://qlty.sh/gh/Capnus/projects/python-project-52)
 
- Task Manager
+## Task Manager
 
 Task Manager is a web application for organizing work tasks. You need to register before using it. Users can create tasks, assign an executor to them, and assign specific labels to these tasks.
 

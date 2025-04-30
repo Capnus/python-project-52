@@ -15,7 +15,7 @@ class LabelsListView(AuthRequiredMixin, ListView):
     model = Label
     context_object_name = 'labels'
     extra_context = {
-        'header': 'Labels'
+        'header': _('Labels')
     }
 
 
@@ -27,10 +27,10 @@ class LabelCreateView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
     model = Label
     form_class = LabelForm
     success_url = reverse_lazy('labels')
-    success_message = 'Label successfully created'
+    success_message = _('Label successfully created')
     extra_context = {
-        'header': 'Create label',
-        'button_title': 'Create'
+        'header': _('Create label'),
+        'button_title': _('Create')
     }
 
 
@@ -42,10 +42,10 @@ class LabelUpdateView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Label
     form_class = LabelForm
     success_url = reverse_lazy('labels')
-    success_message = 'Label successfully updated'
+    success_message = _('Label successfully updated')
     extra_context = {
-        'header': 'Edit label',
-        'button_title': 'Edit'
+        'header': _('Edit label'),
+        'button_title': _('Edit')
     }
 
 
@@ -58,10 +58,10 @@ class LabelDeleteView(AuthRequiredMixin, DeleteProtectionMixin,
     template_name = 'labels/delete.html'
     model = Label
     success_url = reverse_lazy('labels')
-    success_message = 'Label successfully deleted'
-    protected_message = "Unable to delete label, it is in use"
+    success_message = _('Label successfully deleted')
+    protected_message = _("Unable to delete label, it is in use")
     protected_url = reverse_lazy('labels')
     extra_context = {
-        'header': 'Delete label',
-        'button_title': 'Yes, delete'
+        'header': _('Delete label'),
+        'button_title': _('Yes, delete')
     }

@@ -14,7 +14,7 @@ class UserLoginView(SuccessMessageMixin, LoginView):
     template_name = 'login.html'
     form_class = AuthenticationForm
     next_page = reverse_lazy('home')
-    success_message = "You logged in"
+    success_message = _("You logged in")
 
     def form_invalid(self, form):
         return super().form_invalid(form)
@@ -22,8 +22,8 @@ class UserLoginView(SuccessMessageMixin, LoginView):
 
 class UserLogoutView(LogoutView):
     next_page = reverse_lazy('home')
-    success_message = 'You logged out'
+    success_message = _('You logged out')
 
     def dispatch(self, request, *args, **kwargs):
-        messages.info(request, 'You logged out')
+        messages.info(request, _('You logged out'))
         return super().dispatch(request, *args, **kwargs)

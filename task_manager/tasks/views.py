@@ -19,7 +19,7 @@ class TasksListView(AuthRequiredMixin, FilterView):
     filterset_class = TaskFilter
     context_object_name = 'tasks'
     extra_context = {
-        'header': 'tasks'
+        'header': _('tasks')
     }
 
 
@@ -31,7 +31,7 @@ class TaskDetailView(AuthRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
     extra_context = {
-        'header': 'Task preview'
+        'header': _('Task preview')
     }
 
 
@@ -43,10 +43,10 @@ class TaskCreateView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy('tasks')
-    success_message = 'Task successfully created'
+    success_message = _('Task successfully created')
     extra_context = {
-        'header': 'Create task',
-        'button_title': 'Create',
+        'header': _('Create task'),
+        'button_title': _('Create'),
     }
 
     def form_valid(self, form):
@@ -64,10 +64,10 @@ class TaskUpdateView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy('tasks')
-    success_message = 'Task successfully updated'
+    success_message = _('Task successfully updated')
     extra_context = {
-        'header': 'Edit task',
-        'button_title': 'Edit',
+        'header': _('Edit task'),
+        'button_title': _('Edit'),
     }
 
 
@@ -80,10 +80,10 @@ class TaskDeleteView(AuthRequiredMixin, AuthorDeletionMixin,
     template_name = 'tasks/delete.html'
     model = Task
     success_url = reverse_lazy('tasks')
-    success_message = 'Task successfully deleted'
-    author_message = 'Only the task author can delete it'
+    success_message = _('Task successfully deleted')
+    author_message = _('Only the task author can delete it')
     author_url = reverse_lazy('tasks')
     extra_context = {
-        'header': 'Delete task',
-        'button_title': 'Yes, delete',
+        'header': _('Delete task'),
+        'button_title': _('Yes, delete'),
     }

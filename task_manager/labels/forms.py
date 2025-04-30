@@ -4,14 +4,14 @@ from .models import Label
 
 class LabelForm(forms.ModelForm):
     name = forms.CharField(
-        label='Name',
+        label=_('Name'),
         label_suffix='',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Name'
+            'placeholder': _('Name')
             }),
         )
 
     class Meta:
         model = Label
-        fields = ['name']
+        fields = [_('name')]

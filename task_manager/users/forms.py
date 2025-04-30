@@ -8,22 +8,22 @@ class UserForm(forms.ModelForm):
     first_name = forms.CharField(
         max_length=150,
         required=True,
-        label="First name",
+        label= _("First name"),
         label_suffix='',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'First name',
+            'placeholder': _('First name'),
             'required': True,
         })
     )
     last_name = forms.CharField(
         max_length=150,
         required=True,
-        label="Last name",
+        label= _("Last name"),
         label_suffix='',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Last_name',
+            'placeholder': _('Last_name'),
             'required': True,
         })
     )
@@ -31,36 +31,36 @@ class UserForm(forms.ModelForm):
     username = forms.CharField(
         max_length=150,
         required=True,
-        label="Username",
+        label= _("Username"),
         label_suffix='',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Username',
+            'placeholder': _('Username'),
             'required': True,
         }),
-        help_text="Required field. No more than 150 characters. Only letters, numbers and symbols @/./+/-/_."  # noqa: E501
+        help_text= _("Required field. No more than 150 characters. Only letters, numbers and symbols @/./+/-/_.")  # noqa: E501
     )
 
     password1 = forms.CharField(
-        label="Password",
+        label= _("Password"),
         label_suffix='',
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Password',
+            'placeholder': _('Password'),
             'required': True,
         }),
-        help_text="Your password must be at least 3 characters long."
+        help_text=_("Your password must be at least 3 characters long.")
     )
 
     password2 = forms.CharField(
-        label="Password confirmation",
+        label=_("Password confirmation"),
         label_suffix='',
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Password confirmation',
+            'placeholder': _('Password confirmation'),
             'required': True,
         }),
-        help_text="To confirm, please enter your password again."
+        help_text=_("To confirm, please enter your password again.")
     )
 
     class Meta:
@@ -77,7 +77,7 @@ class UserForm(forms.ModelForm):
         username = self.cleaned_data.get('username')
 
         if User.objects.filter(username=username).exclude(id=self.instance.id).exists():  # noqa: E501
-            raise forms.ValidationError('A user with this name already exists.')  # noqa: E501
+            raise forms.ValidationError(_('A user with this name already exists.'))  # noqa: E501
         return username
 
     def clean(self):
@@ -86,7 +86,7 @@ class UserForm(forms.ModelForm):
         password2 = cleaned_data.get('password2')
 
         if password1 and password2 and password1 != password2:
-            self.add_error('password2', 'The passwords do not match.')
+            self.add_error('password2', _('The passwords do not match.'))
 
         return cleaned_data
 

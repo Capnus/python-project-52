@@ -16,11 +16,13 @@ import dj_database_url
 import dotenv
 
 
-dotenv.load_dotenv(BASE_DIR / ".env")
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+dotenv.load_dotenv(BASE_DIR / ".env")
 
 dotenv_file = BASE_DIR / ".env"
 if dotenv_file.exists():

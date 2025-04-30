@@ -1,12 +1,9 @@
 from django import forms
 from django.contrib.auth.hashers import make_password
-from django.core.validators import MinLengthValidator
 from .models import User
 
 
 class UserForm(forms.ModelForm):
-
-    pass_min_len = 3
 
     first_name = forms.CharField(
         max_length=150,
@@ -45,9 +42,6 @@ class UserForm(forms.ModelForm):
     )
 
     password1 = forms.CharField(
-        validators=[
-            MinLengthValidator(pass_min_len, "Password is too short"),
-        ],
         label="Password",
         label_suffix='',
         widget=forms.PasswordInput(attrs={
@@ -92,9 +86,7 @@ class UserForm(forms.ModelForm):
         password2 = cleaned_data.get('password2')
 
         if password1 and password2 and password1 != password2:
-            self.add_error('password2', 'The passwords do not match.
-
-')
+            self.add_error('password2', 'The passwords do not match.')
 
         return cleaned_data
 

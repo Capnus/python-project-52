@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.contrib.messages.views import SuccessMessageMixin
 from django_filters.views import FilterView
+from django.utils.translation import gettext as _
 
 from task_manager.mixins import AuthRequiredMixin, AuthorDeletionMixin
 from task_manager.users.models import User

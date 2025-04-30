@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.utils.translation import gettext as _
 
 from task_manager.mixins import AuthRequiredMixin, DeleteProtectionMixin
 from .models import Label

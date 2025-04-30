@@ -15,4 +15,4 @@ class StatusForm(forms.ModelForm):
 
     class Meta:
         model = Status
-        fields = [_('name')]
+        fields = ['name']

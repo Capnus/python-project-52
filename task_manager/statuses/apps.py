@@ -6,4 +6,4 @@ class StatusesConfig(AppConfig):
     name = 'task_manager.statuses'
 
     def ready(self):
-        from .models import Status  
+        pass  

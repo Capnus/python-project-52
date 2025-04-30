@@ -19,7 +19,7 @@ class TasksListView(AuthRequiredMixin, FilterView):
     filterset_class = TaskFilter
     context_object_name = 'tasks'
     extra_context = {
-        'header': 'Задачи'
+        'header': 'tasks'
     }
 
 
@@ -43,10 +43,10 @@ class TaskCreateView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy('tasks')
-    success_message = 'Задача успешно создана'
+    success_message = 'Task successfully created'
     extra_context = {
-        'header': 'Создать задачу',
-        'button_title': 'Создать',
+        'header': 'Create task',
+        'button_title': 'Create',
     }
 
     def form_valid(self, form):
@@ -64,10 +64,10 @@ class TaskUpdateView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy('tasks')
-    success_message = 'Задача успешно изменена'
+    success_message = 'Task successfully updated'
     extra_context = {
-        'header': 'Изменение задачи',
-        'button_title': 'Изменить',
+        'header': 'Edit task',
+        'button_title': 'Edit',
     }
 
 
@@ -80,10 +80,10 @@ class TaskDeleteView(AuthRequiredMixin, AuthorDeletionMixin,
     template_name = 'tasks/delete.html'
     model = Task
     success_url = reverse_lazy('tasks')
-    success_message = 'Задача успешно удалена'
-    author_message = 'Задачу может удалить только ее автор'
+    success_message = 'Task successfully deleted'
+    author_message = 'Only the task author can delete it'
     author_url = reverse_lazy('tasks')
     extra_context = {
-        'header': 'Удаление задачи',
-        'button_title': 'Да, удалить',
+        'header': 'Delete task',
+        'button_title': 'Yes, delete',
     }

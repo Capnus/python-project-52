@@ -15,7 +15,7 @@ class StatusesListView(AuthRequiredMixin, ListView):
     model = Status
     context_object_name = 'statuses'
     extra_context = {
-        'header': 'Статусы'
+        'header': 'Statuses'
     }
 
 
@@ -27,10 +27,10 @@ class StatusCreateView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
     model = Status
     form_class = StatusForm
     success_url = reverse_lazy('statuses')
-    success_message = 'Статус успешно создан'
+    success_message = 'Status successfully created'
     extra_context = {
-        'header': 'Создать статус',
-        'button_title': 'Создать',
+        'header': 'Create status',
+        'button_title': 'Create',
     }
 
 
@@ -42,10 +42,10 @@ class StatusUpdateView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Status
     form_class = StatusForm
     success_url = reverse_lazy('statuses')
-    success_message = 'Статус успешно изменен'
+    success_message = 'Status successfully updated'
     extra_context = {
-        'header': 'Изменение статуса',
-        'button_title': 'Изменить',
+        'header': 'Edit status',
+        'button_title': 'Edit',
     }
 
 
@@ -58,10 +58,10 @@ class StatusDeleteView(AuthRequiredMixin, DeleteProtectionMixin,
     template_name = 'statuses/delete.html'
     model = Status
     success_url = reverse_lazy('statuses')
-    success_message = 'Статус успешно удален'
-    protected_message = 'Невозможно удалить статус, он используется'
+    success_message = 'Status successfully deleted'
+    protected_message = 'Unable to delete status, it is in use'
     protected_url = reverse_lazy('statuses')
     extra_context = {
-        'header': 'Удаление статуса',
-        'button_title': 'Да, удалить',
+        'header': 'Delete status',
+        'button_title': 'Yes, delete'
     }

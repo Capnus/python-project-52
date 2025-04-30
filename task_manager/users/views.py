@@ -29,10 +29,10 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = UserForm
     success_url = reverse_lazy('login')
     extra_context = {
-        'header': 'Регистрация',
-        'button_title': 'Зарегистрировать',
+        'header': 'Registration',
+        'button_title': 'Register',
     }
-    success_message = "Пользователь успешно зарегистрирован"
+    success_message = 'User successfully registered'
 
 
 class UserUpdateView(AuthRequiredMixin, UserPermissionMixin,
@@ -45,12 +45,12 @@ class UserUpdateView(AuthRequiredMixin, UserPermissionMixin,
     model = User
     form_class = UserForm
     success_url = reverse_lazy('users')
-    success_message = 'Пользователь успешно изменен'
-    permission_message = 'У вас нет прав для изменения другого пользователя.'
+    success_message = 'User successfully updated'
+    permission_message = 'You do not have permission to edit another user.'
     permission_url = reverse_lazy('users')
     extra_context = {
-        'header': 'Изменение пользователя',
-        'button_title': 'Изменить',
+        'header': 'Edit user',
+        'button_title': 'Edit',
     }
 
 
@@ -64,8 +64,8 @@ class UserDeleteView(AuthRequiredMixin, UserPermissionMixin,
     template_name = 'users/delete.html'
     model = User
     success_url = reverse_lazy('users')
-    success_message = 'Пользователь успешно удален'
-    permission_message = 'У вас нет прав для изменения другого пользователя.'
+    success_message = 'User successfully deleted'
+    permission_message = 'You do not have permission to edit another user.'
     permission_url = reverse_lazy('users')
-    protected_message = 'Невозможно удалить пользователя.'
+    protected_message = 'Unable to delete the user.'
     protected_url = reverse_lazy('users')

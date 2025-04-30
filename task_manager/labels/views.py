@@ -15,7 +15,7 @@ class LabelsListView(AuthRequiredMixin, ListView):
     model = Label
     context_object_name = 'labels'
     extra_context = {
-        'header': 'Метки'
+        'header': 'Labels'
     }
 
 
@@ -27,10 +27,10 @@ class LabelCreateView(AuthRequiredMixin, SuccessMessageMixin, CreateView):
     model = Label
     form_class = LabelForm
     success_url = reverse_lazy('labels')
-    success_message = 'Метка успешно создана'
+    success_message = 'Label successfully created'
     extra_context = {
-        'header': 'Создание метки',
-        'button_title': 'Создать'
+        'header': 'Create label',
+        'button_title': 'Create'
     }
 
 
@@ -42,10 +42,10 @@ class LabelUpdateView(AuthRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Label
     form_class = LabelForm
     success_url = reverse_lazy('labels')
-    success_message = 'Метка успешно изменена'
+    success_message = 'Label successfully updated'
     extra_context = {
-        'header': 'Изменение метки',
-        'button_title': 'Изменить'
+        'header': 'Edit label',
+        'button_title': 'Edit'
     }
 
 
@@ -58,10 +58,10 @@ class LabelDeleteView(AuthRequiredMixin, DeleteProtectionMixin,
     template_name = 'labels/delete.html'
     model = Label
     success_url = reverse_lazy('labels')
-    success_message = 'Метка успешно удалена'
-    protected_message = 'Невозможно удалить метку, она используется'
+    success_message = 'Label successfully deleted'
+    protected_message = "Unable to delete label, it is in use"
     protected_url = reverse_lazy('labels')
     extra_context = {
-        'header': 'Удаление метки',
-        'button_title': 'Да, удалить'
+        'header': 'Delete label',
+        'button_title': 'Yes, delete'
     }

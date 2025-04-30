@@ -8,30 +8,30 @@ from task_manager.labels.models import Label
 
 class TaskForm(forms.ModelForm):
     name = forms.CharField(
-        label="Имя",
+        label="Name",
         label_suffix='',
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Имя',
+                'placeholder': 'Name',
             }
         )
     )
 
     description = forms.CharField(
-        label="Описание",
+        label="Description",
         label_suffix='',
         widget=forms.Textarea(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Описание',
+                'placeholder': 'Description',
             }
         )
     )
 
     status = forms.ModelChoiceField(
         queryset=Status.objects.all(),
-        label="Статус",
+        label="Status",
         label_suffix='',
         widget=forms.Select(
             attrs={
@@ -42,7 +42,7 @@ class TaskForm(forms.ModelForm):
 
     executor = forms.ModelChoiceField(
         queryset=User.objects.all(),
-        label="Исполнитель",
+        label="Performer",
         label_suffix='',
         widget=forms.Select(
             attrs={
@@ -53,7 +53,7 @@ class TaskForm(forms.ModelForm):
 
     labels = forms.ModelMultipleChoiceField(
         queryset=Label.objects.all(),
-        label="Метки",
+        label="Tags",
         label_suffix='',
         required=False,
         widget=forms.SelectMultiple(

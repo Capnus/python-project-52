@@ -11,22 +11,22 @@ class UserForm(forms.ModelForm):
     first_name = forms.CharField(
         max_length=150,
         required=True,
-        label="Имя",
+        label="First name",
         label_suffix='',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Имя',
+            'placeholder': 'First name',
             'required': True,
         })
     )
     last_name = forms.CharField(
         max_length=150,
         required=True,
-        label="Фамилия",
+        label="Last name",
         label_suffix='',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Фамилия',
+            'placeholder': 'Last_name',
             'required': True,
         })
     )
@@ -34,39 +34,39 @@ class UserForm(forms.ModelForm):
     username = forms.CharField(
         max_length=150,
         required=True,
-        label="Имя пользователя",
+        label="Username",
         label_suffix='',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Имя пользователя',
+            'placeholder': 'Username',
             'required': True,
         }),
-        help_text="Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."  # noqa: E501
+        help_text="Required field. No more than 150 characters. Only letters, numbers and symbols @/./+/-/_."  # noqa: E501
     )
 
     password1 = forms.CharField(
         validators=[
-            MinLengthValidator(pass_min_len, "Пароль слишком короткий"),
+            MinLengthValidator(pass_min_len, "Password is too short"),
         ],
-        label="Пароль",
+        label="Password",
         label_suffix='',
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Пароль',
+            'placeholder': 'Password',
             'required': True,
         }),
-        help_text="Ваш пароль должен содержать как минимум 3 символа."
+        help_text="Your password must be at least 3 characters long."
     )
 
     password2 = forms.CharField(
-        label="Подтверждение пароля",
+        label="Password confirmation",
         label_suffix='',
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Подтверждение пароля',
+            'placeholder': 'Password confirmation',
             'required': True,
         }),
-        help_text="Для подтверждения введите, пожалуйста, пароль ещё раз."
+        help_text="To confirm, please enter your password again."
     )
 
     class Meta:
@@ -83,7 +83,7 @@ class UserForm(forms.ModelForm):
         username = self.cleaned_data.get('username')
 
         if User.objects.filter(username=username).exclude(id=self.instance.id).exists():  # noqa: E501
-            raise forms.ValidationError('Пользователь с таким именем уже существует.')  # noqa: E501
+            raise forms.ValidationError('A user with this name already exists.')  # noqa: E501
         return username
 
     def clean(self):
@@ -92,7 +92,9 @@ class UserForm(forms.ModelForm):
         password2 = cleaned_data.get('password2')
 
         if password1 and password2 and password1 != password2:
-            self.add_error('password2', 'Пароли не совпадают.')
+            self.add_error('password2', 'The passwords do not match.
+
+')
 
         return cleaned_data
 

@@ -15,9 +15,9 @@ class TaskForm(forms.ModelForm):
             attrs={
                 'class': 'form-control',
                 'placeholder': _('Name'),
-            }(
+            }
         )
-    ))
+    )
 
     description = forms.CharField(
         label=_("Description"),

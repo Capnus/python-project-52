@@ -39,7 +39,7 @@ class UserForm(forms.ModelForm):
             'placeholder': _('Username'),
             'required': True,
         }),
-        help_text= _("Required field. No more than 150 characters. Only letters, numbers and symbols @/./+/-/_.")  # noqa: E501
+        help_text=_("Required field. No more than 150 characters. Only letters, numbers and symbols @/./+/-/_.")  # noqa: E501
     )
 
     password1 = forms.CharField(
